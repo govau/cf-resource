@@ -43,6 +43,7 @@ func (command *Command) Run(request Request) (Response, error) {
 		request.Params.ManifestPath,
 		request.Params.Path,
 		request.Params.CurrentAppName,
+		request.Params.ShowAppLog,
 	)
 	if err != nil {
 		return Response{}, err

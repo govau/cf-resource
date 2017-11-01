@@ -78,10 +78,11 @@ var _ = Describe("Out Command", func() {
 			By("pushing the app")
 			Expect(cloudFoundry.PushAppCallCount()).To(Equal(1))
 
-			manifest, path, currentAppName := cloudFoundry.PushAppArgsForCall(0)
+			manifest, path, currentAppName, showAppLog := cloudFoundry.PushAppArgsForCall(0)
 			Expect(manifest).To(Equal("assets/manifest.yml"))
 			Expect(path).To(Equal(""))
 			Expect(currentAppName).To(Equal(""))
+			Expect(showAppLog).To(Equal(false))
 		})
 
 		Describe("handling any errors", func() {
@@ -219,7 +220,7 @@ var _ = Describe("Out Command", func() {
 			By("pushing the app")
 			Expect(cloudFoundry.PushAppCallCount()).To(Equal(1))
 
-			_, _, currentAppName := cloudFoundry.PushAppArgsForCall(0)
+			_, _, currentAppName, _ := cloudFoundry.PushAppArgsForCall(0)
 			Expect(currentAppName).To(Equal("cool-app-name"))
 		})
 	})

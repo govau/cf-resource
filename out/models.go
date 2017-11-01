@@ -12,6 +12,7 @@ type Params struct {
 	Path                 string            `json:"path"`
 	CurrentAppName       string            `json:"current_app_name"`
 	EnvironmentVariables map[string]string `json:"environment_variables"`
+	ShowAppLog           bool              `json:"show_app_log"`
 }
 
 type Response struct {
