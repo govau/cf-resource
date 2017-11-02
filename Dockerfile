@@ -3,7 +3,7 @@ RUN apk add --no-cache curl jq
 RUN mkdir -p /assets
 WORKDIR /assets
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github-rel" | tar -xzf -
-RUN url=$(curl -s "https://api.github.com/repos/govau/autopilot/releases/latest" \
+RUN url=$(curl -s "https://api.github.com/repos/govau/autopilot/releases/8353120" \
     | jq -r '.assets[] | select(.name = "autopilot-linux") | .browser_download_url') &&\
     curl -L "$url" -o /assets/autopilot
 COPY . /go/src/github.com/concourse/cf-resource
